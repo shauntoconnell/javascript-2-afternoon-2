@@ -19,9 +19,9 @@ var arr = [10,20,30];
 
 //Code Here
 
-function first (arr) {
+function first(arr) {
   return arr[0];
-};
+}
 
 ////////// PROBLEM 2 //////////
 
@@ -36,9 +36,9 @@ var arr = [40,50,60];
 
 //Code Here
 
-function last (arr) {
+function last(arr) {
   return arr[arr.length-1];
-};
+}
 
 ////////// PROBLEM 3 //////////
 
@@ -53,7 +53,9 @@ var family = ['Tyler', 'Jordyn', 'Ryan', 'Chelsey', 'Ireland'];
 
 //Code Here
 
-const looper = family => family.forEach(v => alert(v));
+function looper(arr) {
+  arr.forEach(e => alert(e));
+}
 
 ////////// PROBLEM 4 //////////
 
@@ -68,13 +70,11 @@ var letters = ['A', 'B', 'C', 'D', 'E'];
 
 //Code Here
 
-console.log(letters.length);
-
-const reversedLooper = letters => {
-  for (let i=letters.length-1; i>=0; i--) {
-  alert(letters[i]);
-  };
-};
+function reversedLooper(arr){
+  for (var i = arr.length - 1; i >=0; i--){
+    alert(arr[i]);
+  }
+}
 
 ////////// PROBLEM 5 //////////
 
@@ -89,23 +89,9 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 
 //Code Here
 
-const evenFinder = nums => {
-  
-  evensArr=[];
-
-  nums.forEach(v => {
-    if (v%2===0) {
-      evensArr.push(v);
-    };
-  });
-
-  return evensArr;
-  
-};
-
-
-
-
+function evenFinder(arr) {
+  return arr.filter(e => e%2 === 0)
+}
 
 /////////////////////// EXTRA PRACTICE PROBLEMS BELOW ////////////////////
 ////////// MOVE ONTO NEXT SECTION BEFORE WORKING ON THESE ////////////////
@@ -129,7 +115,30 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 
 //Code Here
 
+function divider(arr) {
+  const evens = [];
+  const odds = [];
+  evensAndOdds = [evens, odds];
 
+  arr.map(e => e%2 === 0 ? evens.push(e) : odds.push(e));
+
+  // arr.map(e => {
+  //   if (e%2 === 0){
+  //     evens.push(e);
+  //   } else {
+  //     odds.push(e);
+  //   }
+  // })
+
+  // const evens = arr.filter(e => e%2 === 0);
+  // const odds = arr.filter(e => e%2 === 1);
+
+  evensAndOdds;
+
+  return evensAndOdds;
+}
+
+divider(numbersArray);
 
 ////////// PROBLEM 7 //////////
 
@@ -150,12 +159,18 @@ var getRandomArbitrary = function() {
 
 //Code Here
 
+var numbers = [0,3,4,5,6,7,9,14,17,24,25,26,29,30];
+
+function finder(arr) {
+  return arr.includes(getRandomArbitrary()) ? true : false;
+}
+
 
 
 ////////// PROBLEM 8 //////////
 
 // Do not edit the code below.
-var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
+var myGroceryList = ['chips', 'pizza', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 // Do not edit the code above.
 
 /*
@@ -179,7 +194,23 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
+function removeItem(arr, str) {
+  if (!arr || !str) return [];
 
+  newArr = [];
+  arr.forEach(e => e !== str ? newArr.push(e) : null);
+
+  return newArr;
+}
+
+removeItem(myGroceryList, 'pizza');
+
+function addItem(arr, str) {
+  if (!arr || !str) return [];
+
+  arr.push(str);
+  return arr;
+}
 
 ////////// PROBLEM 9 //////////
 
@@ -189,7 +220,11 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 
 //Code Here
 
-
+function maker() {
+  newArr = [];
+  for (var i = 1; i <= 215; i++) newArr.push(i);
+  return newArr;
+}
 
 ////////// PROBLEM 10 //////////
 
@@ -205,7 +240,11 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
   
 //Code Here
 
+function addTen(arr) {
+  return arr.map(e => +e + 10);
+}
 
+// console.log(addTen(numbers));
 
 ////////// PROBLEM 11 //////////
 
@@ -230,7 +269,9 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function longer(arr1, arr2) {
+  return arr1 > arr2 ? arr1 : arr2;
+}
 
 /*
   As a continuation of the previous problem, write another function called 'both'.
@@ -242,7 +283,11 @@ for(var i = 0; i < num2; i++){
 
 //Code Here
 
-
+function both(arr1, arr2) {
+  const arr3 = [];
+  arr1.forEach(e => arr2.includes(e) ? arr3.push(e) : null);
+  return arr3;
+}
 
 ////////// PROBLEM 12 //////////
 
@@ -282,7 +327,7 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.push(tyler, cahlan, ryan, colt);
 
 /*
   Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
@@ -291,7 +336,7 @@ var colt = {
 
 //Code Here
 
-
+devMountainEmployees.splice(devMountainEmployees.indexOf(cahlan), 1);
 
 ////////// PROBLEM 13 //////////
 
@@ -303,7 +348,7 @@ var colt = {
 
 //Code Here
 
-
+const users = [];
 
 /*
   Now add three user objects to your users array. Each user object should contain the following properties. name, email, password, username.
@@ -322,7 +367,19 @@ var user1 = {
 
 //Code Here
 
+class User {
+  constructor(name, email, password, username) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.username = username;
+  }
+}
 
+const user2 = new User('name2', 'email2', 'password2', 'username2');
+const user3 = new User('name3', 'email3', 'password3', 'username3');
+
+users.push(user1, user2, user3);
 
 /*
   Now you have a very common data structure. 
@@ -336,7 +393,7 @@ var user1 = {
 
 //Code Here
 
-
+users.forEach((e,i,a) => e.email === 'tylermcginnis33@gmail.com' ? a.splice(i,1) : null)
 
 /*
   The activity we just did is very much how data works in 'the real world'.
